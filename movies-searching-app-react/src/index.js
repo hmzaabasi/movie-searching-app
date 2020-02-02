@@ -1,6 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import App from "./App";
+import MoviesProvider from "./context/movieList.context";
+
+import "./index.css";
+
+ReactDOM.render(
+  <MoviesProvider>
+    <App />
+  </MoviesProvider>,
+  document.getElementById("root")
+);

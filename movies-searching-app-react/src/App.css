@@ -1,0 +1,10 @@
+.App {
+  text-align: center;
+  background-color: lightgrey;
+}
+
+.content-container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 5%;
+}

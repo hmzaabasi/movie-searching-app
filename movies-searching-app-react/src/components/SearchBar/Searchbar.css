@@ -1,0 +1,10 @@
+.searchbar-container {
+  padding: 5px;
+}
+
+.searchbar {
+  width: 220px;
+  height: 15px;
+  padding: 5px;
+  border: 0;
+}
