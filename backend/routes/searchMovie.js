@@ -14,7 +14,7 @@ router.route("/search").get(async (req, res) => {
       if (moviesListCache.has(searchTerm)) {
         console.log("From Cache");
 
-        res.json(moviesListCache.get(searchTerm));
+        res.json({ status: true, moviesList: moviesListCache.get(searchTerm) });
       } else {
         console.log("From API");
 
@@ -33,13 +33,13 @@ router.route("/search").get(async (req, res) => {
         let moviesList = [...firstDataSet, ...secondDataSet];
 
         moviesListCache.set(searchTerm, moviesList);
-        res.json(moviesList);
+        res.json({ status: true, moviesList });
       }
     } else {
-      res.status(400).json({ err: "Invalid Request." });
+      res.status(400).json({ status: false, errorMessage: "Invalid Request." });
     }
   } catch (error) {
-    res.status(400).json({ err: error.toString() });
+    res.status(400).json({ status: false, errorMessage: error.toString() });
   }
 });
 
