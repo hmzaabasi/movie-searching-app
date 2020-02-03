@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const apiUrl = "http://localhost:5000/api/search?keyword=";
+const apiUrl = "http://localhost:3001/api/search?keyword=";
 const ttl = 30000; // time in ms
 
 export const getMovieListByKeyword = async searchTerm => {

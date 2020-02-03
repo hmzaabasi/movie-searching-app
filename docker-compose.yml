@@ -1,0 +1,30 @@
+version: "3.6"
+
+services:
+  node:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile-dev
+    volumes:
+      - "./backend:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    ports:
+      - 3001:3001
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+
+  client:
+    build:
+      context: ./movies-searching-app-react
+      dockerfile: Dockerfile-dev
+    volumes:
+      - "./movies-searching-app-react:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - node

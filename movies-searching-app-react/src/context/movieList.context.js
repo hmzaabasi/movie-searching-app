@@ -32,6 +32,11 @@ const MoviesProvider = ({ children }) => {
               showError: true,
               message: "No Matching Record Found!"
             });
+          } else {
+            setOnError({
+              showError: false,
+              message: ""
+            });
           }
           setMoviesList(moviesArray);
           setLoading(false);

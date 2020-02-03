@@ -1,0 +1,42 @@
+version: "3.6"
+
+services:
+  node-prod:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile-prod
+    volumes:
+      - "./backend:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    # ports:
+    #   - 3001:3001
+    environment:
+      - NODE_ENV=production
+  #    depends_on:
+  #     - db-service
+
+  client-prod:
+    build:
+      context: ./movies-searching-app-react
+      dockerfile: Dockerfile-prod
+      #    volumes:
+      #      - './services/client/:/usr/src/app'
+      #      - '/usr/src/app/node_modules'
+    # ports:
+    #   - 3000:3000
+    environment:
+      - NODE_ENV=production
+
+    depends_on:
+      - node-prod
+
+  nginx-prod:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile-prod
+    restart: always
+    ports:
+      - 8081:80
+    depends_on:
+      - node-prod
+      - client-prod
