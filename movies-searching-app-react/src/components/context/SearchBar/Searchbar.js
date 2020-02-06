@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import "./Searchbar.css";
-import { MoviesContext } from "../../context/movieList.context";
+import { MoviesContext } from "../../../context/movieList.context";
 
 const SearchBar = props => {
   const { setSearchTextVal } = useContext(MoviesContext);
