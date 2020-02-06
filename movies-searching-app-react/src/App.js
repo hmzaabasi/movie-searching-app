@@ -1,27 +1,12 @@
 import React, { useContext } from "react";
+import { Switch, Route, Link } from "react-router-dom";
 
 import "./App.css";
-import SearchBar from "./components/SearchBar/Searchbar";
-import SearchResult from "./components/SearchList/SearchList";
-import { MoviesContext } from "./context/movieList.context";
+import ReduxApp from "./redux";
+import ContextApp from "./reactContext";
 
 function App() {
-  const { loading, onError, moviesList } = useContext(MoviesContext);
-
-  return (
-    <div className="App">
-      <div className="content-container">
-        <SearchBar />
-        {moviesList.length > 0 && <SearchResult moviesList={moviesList} />}
-        {onError.showError && (
-          <div>
-            <strong>{onError.message}</strong>
-          </div>
-        )}
-        {loading && <div>Loading...</div>}
-      </div>
-    </div>
-  );
+  return <></>;
 }
 
 export default App;
