@@ -1,14 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 
 import "./Searchbar.css";
-import { MoviesContext } from "../../../context/movieList.context";
 
 const SearchBar = props => {
-  const { setSearchTextVal } = useContext(MoviesContext);
-
-  const handleChange = e => {
-    setSearchTextVal(e.target.value.trim());
-  };
+  const { handleChange } = props;
   return (
     <>
       <div className="searchbar-container">

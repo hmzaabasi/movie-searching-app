@@ -1,6 +1,6 @@
 import React, { createContext, useState } from "react";
 
-import { getMovieListByKeyword } from "./movieList.utils";
+import { getMovieListByKeyword } from "../utilities/movieList.utils";
 
 export const MoviesContext = createContext({
   onError: {

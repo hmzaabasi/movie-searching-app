@@ -1,15 +1,20 @@
 import React, { useContext } from "react";
 
-import SearchBar from "./components/context/SearchBar/Searchbar";
-import SearchResult from "./components/context/SearchList/SearchList";
+import SearchBar from "./components/SearchBar/Searchbar";
+import SearchResult from "./components/SearchList/SearchList";
 import { MoviesContext } from "./context/movieList.context";
 
 const ReactContextApp = props => {
   const { loading, onError, moviesList } = useContext(MoviesContext);
+  const { setSearchTextVal } = useContext(MoviesContext);
+
+  const handleChange = e => {
+    setSearchTextVal(e.target.value.trim());
+  };
   return (
     <div className="App">
       <div className="content-container">
-        <SearchBar />
+        <SearchBar handleChange={handleChange} />
         {moviesList.length > 0 && <SearchResult moviesList={moviesList} />}
         {onError.showError && (
           <div>
