@@ -1,8 +1,8 @@
-FROM node:10 as builder
+FROM node:alpine as builder
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY package.json /usr/src/app/package.json
+COPY package*.json ./
 
 RUN npm install
 
@@ -10,8 +10,14 @@ COPY . .
 
 RUN npm run build
 
-FROM nginx:alpine
+FROM node:alpine    
 
-COPY --from=builder /usr/src/app/build /usr/share/nginx/html
-# EXPOSE 8080
-# CMD ["nginx", "-g", "daemon off;"]
+RUN npm -g install serve
+
+WORKDIR /usr/src/app
+
+COPY --from=builder /app/build .
+
+EXPOSE 80
+
+CMD ["serve", "-p", "80", "-s", "."]
