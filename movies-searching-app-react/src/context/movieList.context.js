@@ -9,7 +9,7 @@ export const MoviesContext = createContext({
   },
   loading: false,
   moviesList: [],
-  setSearchTextVal: () => {}
+  setSearchTextVal: () => { }
 });
 
 const MoviesProvider = ({ children }) => {

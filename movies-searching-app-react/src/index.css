@@ -1,19 +1,67 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: sans-serif;
+  text-align: center;
 }
 
-.App {
-  text-align: center;
-  background-color: lightgrey;
+.nav-menu{
+  background-color: #343a40;
+}
+
+.nav-menu-container{
+  padding: 20px 30px;
+}
+
+.nav-menu .nav-links {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.seperator {
+  padding: 0 12px;
+  font-size: 15px;
+}
+
+.nav-links, .seperator{
+  color: #dafcff;
+}
+
+.nav-links::after {
+  width: 0px;
+  content: '';
+	height: 2px;
+	display: block;
+	background: #009fad;
+	margin: 2px auto auto;
+	transition: width .3s ease;
+}
+
+.nav-links:hover:after {
+	width: 100%;
+	background: #dafcff;
 }
 
 .content-container {
   width: 80%;
+  padding: 2% 0;
   margin: 0 auto;
-  padding: 5%;
+  max-width: 1300px;
+}
+
+.me-text {
+text-decoration: none;
+color: #000;
+vertical-align: middle;
+}
+
+.me-acc{
+  width: 20px;
+}
+
+.me-git {
+  width: 40px;
+}
+
+.contact-me{
+  padding-top: 10px;
 }

@@ -7,13 +7,16 @@ const SearchBar = props => {
   return (
     <>
       <div className="searchbar-container">
-        <input
-          type="text"
-          className="searchbar"
-          placeholder="Enter search text"
-          onChange={handleChange}
-          spellCheck={false}
-        />
+        <div className="searchbar-with-icn">
+          <input
+            type="text"
+            className="searchbar"
+            placeholder="Search movies..."
+            onChange={handleChange}
+            spellCheck={false}
+          />
+          <img src="/icn_search.png" alt="search" className="search-icon" />
+        </div>
       </div>
     </>
   );

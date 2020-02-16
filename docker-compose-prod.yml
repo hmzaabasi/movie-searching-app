@@ -23,7 +23,7 @@ services:
       #      - './services/client/:/usr/src/app'
       #      - '/usr/src/app/node_modules'
     ports:
-      - 3000:80
+      - 3003:3003
     environment:
       - NODE_ENV=production
 
